@@ -52,6 +52,7 @@
     <Compile Include="Authentication\DataTypes\HttpRestRequestException.cs" />
     <Compile Include="Authentication\DataTypes\TokenResponse.cs" />
     <Compile Include="Authentication\IAuthenticationClient.cs" />
+    <Compile Include="Languages.cs" />
     <Compile Include="Search\DataTypes\SearchResponse.cs" />
     <Compile Include="Search\DataTypes\SearchResult.cs" />
     <Compile Include="Search\ISearchClient.cs" />

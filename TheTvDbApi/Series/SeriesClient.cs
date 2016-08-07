@@ -23,6 +23,7 @@ namespace TheTvDbApi.Series {
             var request = new RestRequest("/series/" + id);
             request.Method = Method.GET;
             request.AddHeader( "Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token );
+            request.AddHeader( "Accept-Language", Enum.GetName( typeof( Languages ), _theTvDbClient.Language ) );
             request.RequestFormat = DataFormat.Json;
             var resonse = _theTvDbClient.HttpClient.Execute(request);
             if ( resonse.StatusCode != HttpStatusCode.OK ) {
@@ -36,6 +37,7 @@ namespace TheTvDbApi.Series {
             var request = new RestRequest("series/" +id+ "/images/query?keyType=" + Enum.GetName(typeof(ImageTypes), type));
             request.Method = Method.GET;
             request.AddHeader( "Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token );
+            request.AddHeader( "Accept-Language", Enum.GetName( typeof( Languages ), _theTvDbClient.Language ) );
             request.RequestFormat = DataFormat.Json;
             var resonse = _theTvDbClient.HttpClient.Execute(request);
             if ( resonse.StatusCode != HttpStatusCode.OK ) {

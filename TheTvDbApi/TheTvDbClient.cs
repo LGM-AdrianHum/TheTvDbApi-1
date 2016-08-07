@@ -15,10 +15,13 @@ namespace TheTvDbApi
 
         public ISearchClient SearchClient { get; }
         public ISeriesClient SeriesClient { get; }
+        public Languages Language { get; set; }
         internal RestClient HttpClient { get; }
 
         public TheTvDbClient(string apiKey, string userkey = "", string username = "") {
             HttpClient = new RestClient( "https://api.thetvdb.com/" );
+
+            Language = Languages.En;
 
             _authenticationClient = new AuthenticationClient(this);
             _authenticationClient.Login( apiKey, userkey, username );

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using Newtonsoft.Json;
 using RestSharp;
@@ -17,6 +18,8 @@ namespace TheTvDbApi.Search {
             var request = new RestRequest("search/series?name=" + name);
             request.Method = Method.GET;
             request.AddHeader( "Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token );
+            request.AddHeader( "Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language ) );
+
             request.RequestFormat = DataFormat.Json;
             var resonse = _theTvDbClient.HttpClient.Execute(request);
             if ( resonse.StatusCode != HttpStatusCode.OK ) {
