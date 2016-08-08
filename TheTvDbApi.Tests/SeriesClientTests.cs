@@ -52,8 +52,8 @@ namespace TheTvDbApi.Tests {
         public void GetEpisodesForSeriesTest() {
             var client = new TheTvDbClient(Apikey);
             var result = client.SeriesClient.GetSeasonsAndEpisodes(72129);
-            Assert.AreEqual(3,result.Count());
-            Assert.AreEqual(14,result.ElementAt(1).EpisodeList.Count());
+            Assert.AreEqual( 3, result.Count() );
+            Assert.AreEqual( 14, result.ElementAt( 1 ).EpisodeList.Count() );
         }
     }
 }

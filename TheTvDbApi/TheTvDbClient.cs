@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using RestSharp;
 using TheTvDbApi.Authentication;
+using TheTvDbApi.Episode;
 using TheTvDbApi.Search;
 using TheTvDbApi.Series;
 
@@ -15,6 +16,7 @@ namespace TheTvDbApi
 
         public ISearchClient SearchClient { get; }
         public ISeriesClient SeriesClient { get; }
+        public IEpisodeClient EpisodeClient { get; }
         public Languages Language { get; set; }
         internal RestClient HttpClient { get; }
 
@@ -28,6 +30,7 @@ namespace TheTvDbApi
 
             SearchClient = new SearchClient(this);
             SeriesClient = new SeriesClient(this);
+            EpisodeClient = new EpisodeClient(this);
         }
     }
 }
