@@ -47,5 +47,13 @@ namespace TheTvDbApi.Tests {
             var result = client.SeriesClient.GetImages(295515, ImageTypes.Series);
             Assert.AreEqual( 2, result.Count() );
         }
+
+        [TestMethod]
+        public void GetEpisodesForSeriesTest() {
+            var client = new TheTvDbClient(Apikey);
+            var result = client.SeriesClient.GetSeasonsAndEpisodes(72129);
+            Assert.AreEqual(3,result.Count());
+            Assert.AreEqual(14,result.ElementAt(1).EpisodeList.Count());
+        }
     }
 }

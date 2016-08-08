@@ -57,9 +57,12 @@
     <Compile Include="Search\DataTypes\SearchResult.cs" />
     <Compile Include="Search\ISearchClient.cs" />
     <Compile Include="Search\SearchClient.cs" />
+    <Compile Include="Series\DataTypes\EpisodeInfo.cs" />
+    <Compile Include="Series\DataTypes\EpisodeResponse.cs" />
     <Compile Include="Series\DataTypes\ImageInfo.cs" />
     <Compile Include="Series\DataTypes\ImageResponse.cs" />
     <Compile Include="Series\DataTypes\Ratingsinfo.cs" />
+    <Compile Include="Series\DataTypes\SeasonInfo.cs" />
     <Compile Include="Series\DataTypes\SerieError.cs" />
     <Compile Include="Series\DataTypes\SerieInfo.cs" />
     <Compile Include="Series\DataTypes\SeriesResponse.cs" />
