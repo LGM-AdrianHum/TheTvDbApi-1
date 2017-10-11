@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TheTvDbApi.Tests {
     [TestClass]
     public class AuthenticationClientTests {
-        private const string Apikey = "8101D1A289918B8A";
+        private const string Apikey = "F2A9C6DEED8BBCD8";
 
         [TestMethod]
         public void LoginTest() {
