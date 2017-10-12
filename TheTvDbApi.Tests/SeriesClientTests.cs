@@ -24,28 +24,28 @@ namespace TheTvDbApi.Tests {
         public void GetImagesForPostersTest() {
             var client = new TheTvDbClient(Apikey);
             var result = client.SeriesClient.GetImages(295515, ImageTypes.Poster);
-            Assert.AreEqual( 5, result.Count() );
+            Assert.AreEqual( 6, result.Count() );
         }
 
         [TestMethod]
         public void GetImagesForFanartTest() {
             var client = new TheTvDbClient(Apikey);
             var result = client.SeriesClient.GetImages(295515, ImageTypes.Fanart);
-            Assert.AreEqual( 9, result.Count() );
+            Assert.AreEqual( 10, result.Count() );
         }
 
         [TestMethod]
         public void GetImagesForSeasonTest() {
             var client = new TheTvDbClient(Apikey);
             var result = client.SeriesClient.GetImages(295515, ImageTypes.Season);
-            Assert.AreEqual( 5, result.Count() );
+            Assert.AreEqual( 8, result.Count() );
         }
 
         [TestMethod]
         public void GetImagesForSeriesTest() {
             var client = new TheTvDbClient(Apikey);
             var result = client.SeriesClient.GetImages(295515, ImageTypes.Series);
-            Assert.AreEqual( 2, result.Count() );
+            Assert.AreEqual( 3, result.Count() );
         }
 
         [TestMethod]
