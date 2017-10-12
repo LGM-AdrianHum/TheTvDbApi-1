@@ -15,8 +15,7 @@ namespace TheTvDbApi.Search {
         }
 
         public IEnumerable<SearchResult> Search(string name) {
-            var request = new RestRequest("search/series?name=" + name);
-            request.Method = Method.GET;
+            var request = new RestRequest("search/series?name=" + name) {Method = Method.GET};
             request.AddHeader( "Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token );
             request.AddHeader( "Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language ) );
 

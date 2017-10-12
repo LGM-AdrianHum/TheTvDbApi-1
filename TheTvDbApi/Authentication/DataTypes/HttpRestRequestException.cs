@@ -2,7 +2,7 @@
 using System.Net;
 
 namespace TheTvDbApi.Authentication {
-    internal class HttpRestRequestException : Exception {
+    public class HttpRestRequestException : Exception {
         public HttpStatusCode StatusCode { get; }            
         public string Content { get; }
 
