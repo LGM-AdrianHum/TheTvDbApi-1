@@ -3,44 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using TheTvDbApi.Mvvm.Annotations;
 
 namespace TheTvDbApi.Mvvm
 {
-    public class TheTvDbApiVm : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public List<string> SeasonEpisodeStructure { get; set; }
-
-        public void AssociateFileListWithSeasonEpisodeCollection(List<string> fileList)
-        {
-            //TODO: Check to see if the episode/season structure is loaded
-
-            //foreach (var v in SeasonEpisodeStructure.SelectMany(x => x.Episode))
-            {
-                var seepKey = "GetFormatted S01E01";
-                var v = SeasonEpisodeStructure.FirstOrDefault(x => x.Contains("S1") && x.Contains("E01"));
-                //if(v!=null) 
-                //if (FileToSeason[v] == null) FileToSeason[v] = new Collection();
-                //FileToSeason[v]=FileInfo;
-
-            }
-        }
-    }
-
-    public class FileToSeason:IDictionary<string,List<FileInfo>>
+    public class FileToSeason:IDictionary<string,List<FileInfo>>, INotifyPropertyChanged
     {//https://msdn.microsoft.com/en-us/library/system.collections.idictionary(v=vs.110).aspx
+        
+        
         public string SeasonKey { get; set; }
         public List<FileInfo> FileInfoList { get; set; } = new List<FileInfo>();
         public IEnumerator<KeyValuePair<string, List<FileInfo>>> GetEnumerator()
@@ -122,6 +93,13 @@ namespace TheTvDbApi.Mvvm
             index = -1;
             return false;
         }
-    }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
 }
