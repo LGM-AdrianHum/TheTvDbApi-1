@@ -9,7 +9,8 @@ using TheTvDbApi.Mvvm.Annotations;
 namespace TheTvDbApi.Mvvm
 {
     public class FileToSeason:IDictionary<string,List<FileInfo>>, INotifyPropertyChanged
-    {//https://msdn.microsoft.com/en-us/library/system.collections.idictionary(v=vs.110).aspx
+    {
+        //https://msdn.microsoft.com/en-us/library/system.collections.idictionary(v=vs.110).aspx
         
         
         public string SeasonKey { get; set; }
