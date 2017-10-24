@@ -20,8 +20,10 @@ namespace TheTvDbApi.Mvvm
 
         public List<string> SeasonEpisodeStructure { get; set; }
 
-        public void AssociateFileListWithSeasonEpisodeCollection(List<string> fileList)
+        public void AssociateFileListWithSeasonEpisodeCollection(List<string> fileList, int id=-1)
         {
+            if (id > -1) TmDbId = id;
+            
             //TODO: Check to see if the episode/season structure is loaded
 
             //foreach (var v in SeasonEpisodeStructure.SelectMany(x => x.Episode))
@@ -34,5 +36,7 @@ namespace TheTvDbApi.Mvvm
 
             }
         }
+
+        public int TmDbId { get; set; }
     }
 }
