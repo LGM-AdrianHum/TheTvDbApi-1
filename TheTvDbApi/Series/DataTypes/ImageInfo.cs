@@ -1,4 +1,4 @@
-﻿namespace TheTvDbApi.Series {
+﻿namespace TheTvDbApi.Series.DataTypes {
     public class ImageInfo {
         public int Id { get; set; }
         public string KeyType { get; set; }

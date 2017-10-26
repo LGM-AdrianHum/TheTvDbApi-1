@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchClientTests.cs" />
     <Compile Include="SeriesClientTests.cs" />
+    <Compile Include="UpdateClientTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TheTvDbApi\TheTvDbApi.csproj">

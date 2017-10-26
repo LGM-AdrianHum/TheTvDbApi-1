@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Net.Mime;
+using System.Threading.Tasks;
 using TheTvDbApi.Series.DataTypes;
 
 namespace TheTvDbApi.Series {

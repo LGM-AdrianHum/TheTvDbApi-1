@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTvDbApi", "TheTvDbApi\Th
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTvDbApi.Tests", "TheTvDbApi.Tests\TheTvDbApi.Tests.csproj", "{B7625430-8397-49B2-87ED-8D90E3060D08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{A721854F-FD2F-41A9-90F5-E642D7085483}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{B7625430-8397-49B2-87ED-8D90E3060D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7625430-8397-49B2-87ED-8D90E3060D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7625430-8397-49B2-87ED-8D90E3060D08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A721854F-FD2F-41A9-90F5-E642D7085483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A721854F-FD2F-41A9-90F5-E642D7085483}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A721854F-FD2F-41A9-90F5-E642D7085483}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A721854F-FD2F-41A9-90F5-E642D7085483}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

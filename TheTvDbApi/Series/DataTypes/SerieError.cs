@@ -1,4 +1,4 @@
-namespace TheTvDbApi.Series {
+namespace TheTvDbApi.Series.DataTypes {
     public class SerieError {
         public string[] InvalidFilters { get; set; }
         public string InvalidLanguage { get; set; }
