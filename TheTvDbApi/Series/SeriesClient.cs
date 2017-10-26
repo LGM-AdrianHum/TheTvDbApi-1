@@ -1,5 +1,18 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿//  _____ _        _____    ______ _      ___        _   
+// |_   _| |      |_   _|   |  _  \ |    / _ \      (_)  
+//   | | | |__   ___| |_   _| | | | |__ / /_\ \_ __  _   
+//   | | | '_ \ / _ \ \ \ / / | | | '_ \|  _  | '_ \| |  
+//   | | | | | |  __/ |\ V /| |/ /| |_) | | | | |_) | |_ 
+//   \_/ |_| |_|\___\_/ \_/ |___/ |_.__/\_| |_/ .__/|_(_)
+//                                            | |        
+//                                            |_|        
+// File: TheTvDbApi/TheTvDbApi/SeriesClient.cs
+// User: Adrian Hum/
+// 
+// Created:  2017-10-23 5:16 PM
+// Modified: 2017-10-26 5:15 PM
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -21,15 +34,13 @@ namespace TheTvDbApi.Series
 
         public SerieInfo Get(int id)
         {
-            var request = new RestRequest("/series/" + id) { Method = Method.GET };
+            var request = new RestRequest("/series/" + id) {Method = Method.GET};
             request.AddHeader("Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token);
             request.AddHeader("Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language));
             request.RequestFormat = DataFormat.Json;
             var resonse = _theTvDbClient.HttpClient.Execute(request);
             if (resonse.StatusCode != HttpStatusCode.OK)
-            {
                 throw new HttpRestRequestException(resonse.StatusCode, resonse.Content);
-            }
             var data = JsonConvert.DeserializeObject<SeriesResponse>(resonse.Content);
             return data.Data;
         }
@@ -46,16 +57,13 @@ namespace TheTvDbApi.Series
             request.RequestFormat = DataFormat.Json;
             var resonse = _theTvDbClient.HttpClient.Execute(request);
             if (resonse.StatusCode != HttpStatusCode.OK)
-            {
                 throw new HttpRestRequestException(resonse.StatusCode, resonse.Content);
-            }
             var data = JsonConvert.DeserializeObject<ImageResponse>(resonse.Content);
             return data.Data;
         }
 
         public IEnumerable<SeasonInfo> GetSeasonsAndEpisodes(int id)
         {
-
             var episodeList = GetEpisodeList(id, 1);
 
             return InternalPackSeasons(episodeList);
@@ -63,20 +71,18 @@ namespace TheTvDbApi.Series
 
         private IEnumerable<EpisodeInfo> GetEpisodeList(int id, int page)
         {
-
             var episodes = new List<EpisodeInfo>();
 
-            var request = new RestRequest("series/" + id + "/episodes/query?page=" + page) { Method = Method.GET };
+            var request = new RestRequest("series/" + id + "/episodes/query?page=" + page) {Method = Method.GET};
             request.AddHeader("Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token);
             request.AddHeader("Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language));
             request.RequestFormat = DataFormat.Json;
             var response = _theTvDbClient.HttpClient.Execute(request);
             if (response.StatusCode != HttpStatusCode.OK)
-            {
                 throw new HttpRestRequestException(response.StatusCode, response.Content);
-            }
 
-            var data = JsonConvert.DeserializeObject<EpisodeResponse>(response.Content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+            var data = JsonConvert.DeserializeObject<EpisodeResponse>(response.Content,
+                new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore});
 
             if (data.Links.Next > page) episodes.AddRange(GetEpisodeList(id, page + 1));
 

@@ -59,6 +59,7 @@
     <Compile Include="AuthenticationClientTests.cs" />
     <Compile Include="EpisodeClientTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateClientTests.cs" />
     <Compile Include="SearchClientTests.cs" />
     <Compile Include="SeriesClientTests.cs" />
   </ItemGroup>
