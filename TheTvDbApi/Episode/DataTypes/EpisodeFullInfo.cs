@@ -18,7 +18,7 @@ namespace TheTvDbApi.Episode.DataTypes {
         public string Overview { get; set; }
         public string ProductionCode { get; set; }
         public string ShowUrl { get; set; }
-        public int LastUpdated { get; set; }
+        public long LastUpdated { get; set; }
         public string DvdDiscid { get; set; }
         public int DvdSeason { get; set; }
         public int DvdEpisodeNumber { get; set; }

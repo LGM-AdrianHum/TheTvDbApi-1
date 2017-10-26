@@ -9,8 +9,8 @@
 // 
 // Module   : TheTvDbApi/TheTvDbApi/UpdateClient.cs
 // Name     : Adrian Hum - adrianhum 
-// Created  : 2017-10-26-5:16 PM
-// Modified : 2017-10-27-7:19 AM
+// Created  : 2017-10-27-7:40 AM
+// Modified : 2017-10-27-7:58 AM
 
 using System;
 using System.Net;
@@ -39,7 +39,7 @@ namespace TheTvDbApi.Updates
         {
             var req = $"/updated/query?fromTime={epochFromTime}";
             if (epochToTime != -1) req += $"&toTime={epochToTime}";
-            var request = new RestRequest(req) { Method = Method.GET };
+            var request = new RestRequest(req) {Method = Method.GET};
             request.AddHeader("Authorization", $"Bearer {_theTvDbClient.AuthenticationClient.Token}");
             request.AddHeader("Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language));
             request.RequestFormat = DataFormat.Json;
