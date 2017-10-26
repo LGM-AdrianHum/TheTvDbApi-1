@@ -17,6 +17,7 @@ using System.Net;
 using Newtonsoft.Json;
 using RestSharp;
 using TheTvDbApi.Authentication;
+using TheTvDbApi.Updates.DataTypes;
 
 namespace TheTvDbApi.Updates
 {
@@ -38,8 +39,8 @@ namespace TheTvDbApi.Updates
         {
             var req = $"/updated/query?fromTime={epochFromTime}";
             if (epochToTime != -1) req += $"&toTime={epochToTime}";
-            var request = new RestRequest(req) {Method = Method.GET};
-            request.AddHeader("Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token);
+            var request = new RestRequest(req) { Method = Method.GET };
+            request.AddHeader("Authorization", $"Bearer {_theTvDbClient.AuthenticationClient.Token}");
             request.AddHeader("Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language));
             request.RequestFormat = DataFormat.Json;
             var resonse = _theTvDbClient.HttpClient.Execute(request);
@@ -50,12 +51,5 @@ namespace TheTvDbApi.Updates
             data.ToEpochTime = epochToTime;
             return data.Data;
         }
-    }
-
-
-    public class UpdatedSeries
-    {
-        public int id { get; set; }
-        public int lastUpdated { get; set; }
     }
 }

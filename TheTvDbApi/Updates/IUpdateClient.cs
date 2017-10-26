@@ -13,6 +13,7 @@
 // Modified : 2017-10-27-7:23 AM
 
 using System;
+using TheTvDbApi.Updates.DataTypes;
 
 namespace TheTvDbApi.Updates
 {

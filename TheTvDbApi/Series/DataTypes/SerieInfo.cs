@@ -12,7 +12,12 @@
         public string Runtime { get; set; }
         public string[] Genre { get; set; }
         public string Overview { get; set; }
-        public int LastUpdated { get; set; }
+        
+        /// <summary>
+        /// <see cref="TheTvDbApi.Updates.DataTypes.UpdatedSeries.LastUpdated"/>
+        /// Epoch datetime when this record was last updated.
+        /// </summary>
+        public long LastUpdated { get; set; }
         public string AirsDayOfWeek { get; set; }
         public string AirsTime { get; set; }
         public string Rating { get; set; }

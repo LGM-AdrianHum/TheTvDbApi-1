@@ -78,6 +78,7 @@
     <Compile Include="Updates\IUpdateClient.cs" />
     <Compile Include="TimeConverters.cs" />
     <Compile Include="Updates\UpdateClient.cs" />
+    <Compile Include="Updates\DataTypes\UpdatedSeries.cs" />
     <Compile Include="Updates\UpdateSeriesResponse.cs" />
   </ItemGroup>
   <ItemGroup>
