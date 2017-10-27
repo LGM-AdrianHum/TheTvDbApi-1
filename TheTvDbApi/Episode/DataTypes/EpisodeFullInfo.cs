@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TheTvDbApi.Episode.DataTypes {
     public class EpisodeFullInfo {
@@ -18,7 +14,7 @@ namespace TheTvDbApi.Episode.DataTypes {
         public string Overview { get; set; }
         public string ProductionCode { get; set; }
         public string ShowUrl { get; set; }
-        public int LastUpdated { get; set; }
+        public long LastUpdated { get; set; }
         public string DvdDiscid { get; set; }
         public int DvdSeason { get; set; }
         public int DvdEpisodeNumber { get; set; }

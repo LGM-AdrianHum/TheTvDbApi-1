@@ -7,26 +7,19 @@
 //                                            | |        
 //                                            |_|        
 // 
-// Module   : TheTvDbApi/TheTvDbApi/EpisodeResponse.cs
+// Module   : TheTvDbApi/TheTvDbApi/IUpdateClient.cs
 // Name     : Adrian Hum - adrianhum 
-// Created  : 2017-10-27-7:20 AM
-// Modified : 2017-10-27-7:21 AM
+// Created  : 2017-10-27-7:19 AM
+// Modified : 2017-10-27-7:23 AM
 
-using System.Collections.Generic;
+using System;
+using TheTvDbApi.Updates.DataTypes;
 
-namespace TheTvDbApi.Series.DataTypes
+namespace TheTvDbApi.Updates
 {
-    internal class EpisodeResponse
+    public interface IUpdateClient
     {
-        public Links Links { get; set; }
-        public List<EpisodeInfo> data { get; set; }
-    }
-
-    internal class Links
-    {
-        public int First { get; set; }
-        public int Last { get; set; }
-        public int Next { get; set; }
-        public int Previous { get; set; }
+        UpdatedSeries[] Get(long epochFromTime, long epochToTime = -1);
+        UpdatedSeries[] Get(DateTime fromTime, DateTime? toTime = null);
     }
 }
