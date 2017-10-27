@@ -22,4 +22,5 @@ namespace TheTvDbApi.Updates
         UpdatedSeries[] Get(long epochFromTime, long epochToTime = -1);
         UpdatedSeries[] Get(DateTime fromTime, DateTime? toTime = null);
     }
+
 }
