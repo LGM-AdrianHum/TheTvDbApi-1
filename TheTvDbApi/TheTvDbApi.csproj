@@ -61,6 +61,7 @@
     <Compile Include="Search\DataTypes\SearchResult.cs" />
     <Compile Include="Search\ISearchClient.cs" />
     <Compile Include="Search\SearchClient.cs" />
+    <Compile Include="Series\DataTypes\Actors.cs" />
     <Compile Include="Series\DataTypes\EpisodeInfo.cs" />
     <Compile Include="Series\DataTypes\EpisodeResponse.cs" />
     <Compile Include="Series\DataTypes\ImageInfo.cs" />

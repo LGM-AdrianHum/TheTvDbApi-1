@@ -19,7 +19,7 @@ namespace TheTvDbApi.Series.DataTypes
     internal class EpisodeResponse
     {
         public Links Links { get; set; }
-        public List<EpisodeInfo> data { get; set; }
+        public IEnumerable<EpisodeInfo> data { get; set; }
     }
 
     internal class Links

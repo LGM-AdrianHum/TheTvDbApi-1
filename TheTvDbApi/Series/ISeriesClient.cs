@@ -9,5 +9,6 @@ namespace TheTvDbApi.Series {
         SerieInfo Get( int id );
         IEnumerable<ImageInfo> GetImages( int id, ImageTypes type);
         IEnumerable<SeasonInfo> GetSeasonsAndEpisodes(int id);
+        IEnumerable<Actors> GetActors(int id);
     }
 }
