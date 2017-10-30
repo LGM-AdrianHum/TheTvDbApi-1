@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-namespace TheTvDbApi.Episode.DataTypes {
-    public class EpisodeFullInfo {
+namespace TheTvDbApi.Episode.DataTypes
+{
+    public class EpisodeFullInfo
+    {
         public int Id { get; set; }
         public int AiredSeason { get; set; }
         public int AiredEpisodeNumber { get; set; }
@@ -15,9 +18,10 @@ namespace TheTvDbApi.Episode.DataTypes {
         public string ProductionCode { get; set; }
         public string ShowUrl { get; set; }
         public long LastUpdated { get; set; }
+        public DateTime LastUpdatedDateTime => LastUpdated.FromUnixTime();
         public string DvdDiscid { get; set; }
-        public int DvdSeason { get; set; }
-        public int DvdEpisodeNumber { get; set; }
+        public decimal DvdSeason { get; set; }
+        public decimal DvdEpisodeNumber { get; set; }
         public int DvdChapter { get; set; }
         public int AbsoluteNumber { get; set; }
         public string Filename { get; set; }
@@ -34,8 +38,9 @@ namespace TheTvDbApi.Episode.DataTypes {
         public decimal SiteRating { get; set; }
         public int SiteRatingCount { get; set; }
 
-        public EpisodeFullInfo() {
-            
+        public EpisodeFullInfo()
+        {
+
         }
     }
 }
