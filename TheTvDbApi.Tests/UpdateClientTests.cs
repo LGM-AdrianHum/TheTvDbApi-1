@@ -31,6 +31,7 @@ namespace TheTvDbApi.Tests
             var res2 = client.UpdateClient.Get(DateTime.Today.AddDays(-3));
             var res3 = client.UpdateClient.Get(DateTime.Today.AddDays(-5), DateTime.Today.AddDays(-1));
             Assert.IsNotNull(res1);
+            
             Assert.IsTrue(res1.Any());
             Assert.IsTrue(res1.Length > 0);
 
@@ -41,7 +42,14 @@ namespace TheTvDbApi.Tests
             Assert.IsNotNull(res3);
             Assert.IsTrue(res3.Any());
             Assert.IsTrue(res3.Length > 0);
+
+            var firstres3 = res3.FirstOrDefault();
+            if (firstres3 == null) return;
+            
+            Assert.AreEqual(firstres3.LastUpdated.FromUnixTime(), firstres3.LastUpdateDateTime);
+            Assert.AreNotEqual(firstres3.Id,0);
         }
+        
 
         [TestMethod]
         public void EpochTimeTest()
