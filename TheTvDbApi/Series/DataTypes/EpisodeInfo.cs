@@ -25,5 +25,9 @@ namespace TheTvDbApi.Series.DataTypes
         public string EpisodeName { get; set; }
         public int Id { get; set; }
         public string Overview { get; set; }
+        public override string ToString()
+        {
+            return $"S{AiredSeason:00}E{AiredEpisodeNumber:00} - {EpisodeName} ({Id})";
+        }
     }
 }

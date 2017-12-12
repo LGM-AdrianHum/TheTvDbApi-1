@@ -17,7 +17,7 @@ namespace TheTvDbApi.Episode.DataTypes {
         public long LastUpdated { get; set; }
         public string DvdDiscid { get; set; }
         public int DvdSeason { get; set; }
-        public int DvdEpisodeNumber { get; set; }
+        public decimal? DvdEpisodeNumber { get; set; }
         public int DvdChapter { get; set; }
         public int AbsoluteNumber { get; set; }
         public string Filename { get; set; }
@@ -33,6 +33,11 @@ namespace TheTvDbApi.Episode.DataTypes {
         public string ImdbId { get; set; }
         public decimal SiteRating { get; set; }
         public int SiteRatingCount { get; set; }
+
+        public override string ToString()
+        {
+            return $"S{AiredSeason:00}E{AiredEpisodeNumber:00} - {EpisodeName} ({Id})";
+        }
 
         public EpisodeFullInfo() {
             

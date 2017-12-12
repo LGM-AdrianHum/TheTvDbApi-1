@@ -34,6 +34,7 @@ namespace TheTvDbApi.Series
 
         public SerieInfo Get(int id)
         {
+            if (id == 0) return null;
             var request = new RestRequest("/series/" + id) {Method = Method.GET};
             request.AddHeader("Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token);
             request.AddHeader("Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language));
