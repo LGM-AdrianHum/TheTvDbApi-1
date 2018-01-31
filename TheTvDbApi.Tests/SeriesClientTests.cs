@@ -55,5 +55,15 @@ namespace TheTvDbApi.Tests {
             Assert.AreEqual( 3, result.Count() );
             Assert.AreEqual( 14, result.ElementAt( 1 ).EpisodeList.Count() );
         }
+
+        [TestMethod]
+        public void GetActors()
+        {
+            var client = new TheTvDbClient(Apikey);
+            var result = client.SeriesClient.GetActors(72129);
+            Assert.IsTrue(result.Any());
+            
+        }
+
     }
 }

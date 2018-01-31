@@ -63,6 +63,21 @@ namespace TheTvDbApi.Series
             return data.Data;
         }
 
+        public IEnumerable<Actors> GetActors(int id)
+        {
+            var actorList = new List<Actors>();
+            var request = new RestRequest($"series/{id}/actors") { Method = Method.GET };
+            request.AddHeader("Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token);
+            request.AddHeader("Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language));
+            request.RequestFormat = DataFormat.Json;
+            var response = _theTvDbClient.HttpClient.Execute(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new HttpRestRequestException(response.StatusCode, response.Content);
+            var data = JsonConvert.DeserializeObject<ActorsResponse>(response.Content,
+                new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+            return data.Data;
+        }
+
         public IEnumerable<SeasonInfo> GetSeasonsAndEpisodes(int id)
         {
             var episodeList = GetEpisodeList(id, 1);
@@ -74,7 +89,7 @@ namespace TheTvDbApi.Series
         {
             var episodes = new List<EpisodeInfo>();
 
-            var request = new RestRequest("series/" + id + "/episodes/query?page=" + page) {Method = Method.GET};
+            var request = new RestRequest($"series/{id}/episodes/query?page={page}") {Method = Method.GET};
             request.AddHeader("Authorization", "Bearer " + _theTvDbClient.AuthenticationClient.Token);
             request.AddHeader("Accept-Language", Enum.GetName(typeof(Languages), _theTvDbClient.Language));
             request.RequestFormat = DataFormat.Json;
